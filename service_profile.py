@@ -31,8 +31,6 @@ class ServiceProfile(QWidget):
         self.timer.setInterval(1000)            # 1초 주기
         self.timer.timeout.connect(self._update_status)
         self.init_ui()
-        self.timer.start()
-
 
     def _update_status(self):
         try:
@@ -72,6 +70,8 @@ class ServiceProfile(QWidget):
         # 레이아웃 ← 인디케이터 → 버튼 순서
         self.layout_main.addWidget(self.label_status)   # 왼쪽 끝
         self.layout_main.addWidget(self.service_button) # 그 오른쪽
+
+        self.timer.start()
 
     def temp(self):
         import random
