@@ -3,39 +3,14 @@ from PySide6.QtWidgets import (
     QHBoxLayout, QTextBrowser, QApplication, QTextEdit
 )
 from PySide6.QtCore import Qt, QThread, Signal
-import subprocess
 import sys
 
-from utils import (disable_service, restart_service, start_service,
-                   stop_service, stream_journalctl, unregister_service,
+from service_hub_icp.utils import (disable_service, restart_service, start_service,
+                   stop_service, stream_logs, unregister_service,
                    enable_service, modify_service_file)
 
-BUTTON = """
-    QPushButton {
-        background-color: #3a3a3a;
-        color: white;
-        border: 1px solid #4a4a4a;
-        padding: 6px 12px;
-        font-size: 10px;
-    }
-    QPushButton:hover {
-        background-color: #505050;
-        border: 1px solid #606060;
-    }
-"""
-
-TITLE_BUTTON = """
-    QPushButton {
-        background-color: transparent;
-        color: white;
-        border: none;
-        font-size: 10px;
-    }
-    QPushButton:hover {
-        background-color: #505050;
-        border-radius: 4px;
-    }
-"""
+from event_bus import event_bus
+from css import BUTTON, TITLE_BUTTON
 
 class FileViewerDialog(QDialog):
     def __init__(self, path: str, file_text: str):
@@ -75,7 +50,7 @@ class LogStreamThread(QThread):
         self.process = None
 
     def run(self):
-        for line in stream_journalctl(self.service_name):
+        for line in stream_logs(self.service_name):
             if not self.running:
                 break
             self.log_received.emit(line)
@@ -154,7 +129,7 @@ class ServiceMenuDialog(QDialog):
         disable_button.clicked.connect(lambda: disable_service(self.service_name))
         
         remove_button = QPushButton("Remove")
-        remove_button.clicked.connect(lambda: unregister_service(self.service_name))
+        remove_button.clicked.connect(self.remove_service)
         
         logs_button = QPushButton("View Logs")
         logs_button.clicked.connect(self.open_log_stream)
@@ -202,6 +177,10 @@ class ServiceMenuDialog(QDialog):
         self.log_viewer.append(msg)
         sb = self.log_viewer.verticalScrollBar()
         sb.setValue(sb.maximum())
+
+    def remove_service(self):
+        unregister_service(self.service_name)
+        event_bus.service_changed.emit()
 
     # -------------------------
     # Close Event (Stop thread)

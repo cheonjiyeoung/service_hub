@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QWidget, QPushButton, QHBoxLayout, QLabel
 from PySide6.QtCore import QTimer
-from utils import return_service_state
+from service_hub_icp.utils import return_service_state
 # from css import BUTTON
 
 BUTTON = """
@@ -33,11 +33,6 @@ class ServiceProfile(QWidget):
 
     def _update_status(self):
         try:
-            # 실제 systemctl 조회 대신 임시 랜덤 상태 사용
-            # service_state = self.temp()
-            # self.label_status.setText(service_state)
-            # return
-
             # 실제 systemctl 기반 사용할 경우:
             result = return_service_state(self.service_name)
             state = result.stdout.strip()
@@ -72,11 +67,6 @@ class ServiceProfile(QWidget):
 
         self.timer.start()
 
-    def temp(self):
-        import random
-        states = [ACTIVE, INACTIVE, ERROR]
-        return random.choice(states)
-    
     def on_click(self):
         from service_menu_dialog import ServiceMenuDialog
         self.dialog = ServiceMenuDialog(self.service_name)  # 인스턴스 변수로 저장

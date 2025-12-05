@@ -4,9 +4,13 @@ from PySide6.QtCore import QTimer
 from add_service_dialog import ServicePathDialog, ServiceNameDialog
 from service_profile import ServiceProfile
 from css import BUTTON, apply_frameless_style, enable_drag_move
-from utils import return_config, register_service, event_bus
+# IPC 클라이언트 모듈
+from service_hub_icp.utils import (
+    list_services,
+    register_service,
+)
 import sys
-
+from event_bus import event_bus
 
 class CustomWindow(QWidget):
     def __init__(self):
@@ -33,47 +37,53 @@ class CustomWindow(QWidget):
         layout_main.addStretch(0)
 
     def refresh(self):
-        # 기존 위젯 제거
+        # 기존 UI 제거
         while self.layout_service_list.count():
             item = self.layout_service_list.takeAt(0)
             widget = item.widget()
             if widget:
                 widget.deleteLater()
 
-        # 새 목록 읽기
-        config = return_config()
-        sections = config.sections()
+        # 데몬에서 목록 받아오기
+        resp = list_services()
+        services = resp.get("services", [])
 
-        for service_name in sections:
-            profile = ServiceProfile(service_name)
+        for svc in services:
+            name = svc["name"]
+            profile = ServiceProfile(name)
             profile.init_ui()
             self.layout_service_list.addWidget(profile)
 
     def on_add_service(self):
-        # 1단계: 서비스 이름 입력
+        # Step 1: 서비스 이름
         name_dialog = ServiceNameDialog()
         if name_dialog.exec() != QDialog.Accepted:
             return
 
         service_name = name_dialog.get_service_name()
         if not service_name:
-            return  # 빈 입력이면 취소 처리
+            return
 
-        # 2단계: sh 파일 경로 입력
+        # Step 2: 파일 경로
         path_dialog = ServicePathDialog(service_name)
         if path_dialog.exec() != QDialog.Accepted:
             return
 
         service_path = path_dialog.get_service_path()
         if not (service_path and service_path.endswith(".sh")):
-            return  # 안전성 체크
+            return
 
-        # 최종적으로 서비스 등록 로직 호출
-        try:
-            register_service(service_name, service_path)
-            print(f"Success: {service_name} -> {service_path}")
-        except Exception as e:
-            QMessageBox.warning(self, "Failed", str(e))
+        # IPC로 데몬에 등록 요청
+        resp = register_service(service_name, service_path)
+
+        if resp.get("error"):
+            QMessageBox.warning(self, "Failed", str(resp["error"]))
+            return
+
+        print(f"[IPC] Registered: {service_name} -> {service_path}")
+
+        # UI 갱신
+        self.refresh()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

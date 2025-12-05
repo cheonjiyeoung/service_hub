@@ -12,6 +12,19 @@ BUTTON = """
     }
 """
 
+TITLE_BUTTON = """
+    QPushButton {
+        background-color: transparent;
+        color: white;
+        border: none;
+        font-size: 10px;
+    }
+    QPushButton:hover {
+        background-color: #505050;
+        border-radius: 4px;
+    }
+"""
+
 def apply_frameless_style(target):
     """QWidget 또는 QDialog 에 프레임리스 UI를 적용 (함수 기반 Mixin)"""
 
