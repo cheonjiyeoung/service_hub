@@ -30,6 +30,8 @@ class ServiceProfile(QWidget):
         self.timer = QTimer(self)
         self.timer.setInterval(1000)            # 1초 주기
         self.timer.timeout.connect(self._update_status)
+        self.init_ui()
+        self.timer.start()
 
 
     def _update_status(self):
