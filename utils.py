@@ -11,6 +11,13 @@ import os
 # -----------------------------------------------------------
 # Register new systemd service (.sh 파일 기반)
 # -----------------------------------------------------------
+from PySide6.QtCore import QObject, Signal
+
+class ServiceEventBus(QObject):
+    config_changed = Signal()
+
+event_bus = ServiceEventBus()
+
 def register_service(service_name: str, service_path: str) -> None:
     """
     서비스 등록: .service 파일 생성 → daemon-reload → enable → INI 저장
@@ -80,6 +87,7 @@ WantedBy=multi-user.target
 
     with open("services.ini", "w") as f:
         config.write(f)
+    event_bus.config_changed.emit()
 
 
 
@@ -105,6 +113,7 @@ def unregister_service(service_name: str) -> None:
         config.remove_section(service_name)
         with open("services.ini", "w") as f:
             config.write(f)
+    event_bus.config_changed.emit()
 
 
 # -----------------------------------------------------------
