@@ -67,11 +67,6 @@ class ServiceProfile(QWidget):
         self.layout_main.addWidget(self.label_status)   # 왼쪽 끝
         self.layout_main.addWidget(self.service_button) # 그 오른쪽
 
-        # 타이머
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self._update_status)
-        self.timer.start(1000)
-
     def temp(self):
         import random
         states = [ACTIVE, INACTIVE, ERROR]

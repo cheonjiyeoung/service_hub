@@ -34,8 +34,16 @@ class CustomWindow(QWidget):
         layout_main.addStretch(0)
 
     def refresh(self):
+        # 기존 위젯 제거
+        while self.layout_service_list.count():
+            item = self.layout_service_list.takeAt(0)
+            widget = item.widget()
+            if widget:
+                widget.deleteLater()
+
+        # 새 목록 읽기
         config = return_config()
-        sections = config.sections()  # 서비스 이름 리스트
+        sections = config.sections()
 
         for service_name in sections:
             profile = ServiceProfile(service_name)
