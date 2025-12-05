@@ -27,6 +27,10 @@ class ServiceProfile(QWidget):
         self.status = INIT
         self.layout_main = QHBoxLayout(self)
         self.setStyleSheet("font-family: 'Inter'; font-size: 12px;")
+        self.timer = QTimer(self)
+        self.timer.setInterval(1000)            # 1초 주기
+        self.timer.timeout.connect(self._update_status)
+
 
     def _update_status(self):
         try:
