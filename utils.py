@@ -184,3 +184,7 @@ def return_service_state(service_name):
         check=False
     )
     return result
+
+def modify_service_file(service_path, data):
+    with open(service_path, "w") as f:
+        f.write(data)

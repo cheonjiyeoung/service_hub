@@ -6,7 +6,9 @@ from PySide6.QtCore import Qt, QThread, Signal
 import subprocess
 import sys
 
-from utils import disable_service, restart_service, start_service, stop_service, stream_journalctl, unregister_service, enable_service
+from utils import (disable_service, restart_service, start_service,
+                   stop_service, stream_journalctl, unregister_service,
+                   enable_service, modify_service_file)
 
 BUTTON = """
     QPushButton {
@@ -35,6 +37,30 @@ TITLE_BUTTON = """
     }
 """
 
+class FileViewerDialog(QDialog):
+    def __init__(self, path: str, file_text: str):
+        super().__init__()
+        self.setWindowTitle(f"{path}")
+        self.setMinimumSize(600, 500)
+        self.setWindowFlags(Qt.Window)
+        self.path = path
+
+        layout = QVBoxLayout(self)
+
+        self.viewer = QTextBrowser()
+        self.viewer.setStyleSheet("background-color: #1e1e1e; color: white; font-size: 13px;")
+        self.viewer.setText(file_text)
+
+        btn_ok = QPushButton("OK")
+        btn_ok.clicked.connect(self.on_click)
+
+        layout.addWidget(self.viewer)
+        layout.addWidget(btn_ok)
+
+    def on_click(self):
+        content = self.viewer.toPlainText()
+        modify_service_file(self.path, content)
+        self.accept()
 
 # -------------------------
 # Log Streaming Thread
@@ -133,7 +159,12 @@ class ServiceMenuDialog(QDialog):
         logs_button = QPushButton("View Logs")
         logs_button.clicked.connect(self.open_log_stream)
 
-        for btn in (start_button, stop_button, restart_button, disable_button, remove_button, logs_button, enable_button):
+        modify_button = QPushButton("Modify")
+        modify_button.clicked.connect(self.modify_system_file)
+        
+
+        for btn in (start_button, stop_button, restart_button, disable_button,
+                    remove_button, logs_button, enable_button, modify_button):
             btn.setStyleSheet(BUTTON)
 
         control_layout.addWidget(start_button)
@@ -142,6 +173,7 @@ class ServiceMenuDialog(QDialog):
         control_layout.addWidget(enable_button)
         control_layout.addWidget(disable_button)
         control_layout.addWidget(remove_button)
+        control_layout.addWidget(modify_button)
         control_layout.addWidget(logs_button)
 
         self.layout.addLayout(control_layout)
@@ -267,6 +299,24 @@ class ServiceMenuDialog(QDialog):
                 rect.setHeight(rect.height() - diff)
 
         self.setGeometry(rect)
+
+    def modify_system_file(self):
+        path = f"/etc/systemd/system/{self.service_name}.service"
+        try:
+            with open(path, "r") as f:
+                data = f.read()
+        except Exception as e:
+            from PySide6.QtWidgets import QMessageBox
+            QMessageBox.warning(self, "파일 오류", str(e))
+            return
+
+        # 읽은 내용 새 창에 띄우기
+        dialog = FileViewerDialog(path, data)
+        dialog.exec()
+            
+
+
+
 
 
 # -------------------------
