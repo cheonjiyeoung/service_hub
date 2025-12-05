@@ -4,7 +4,7 @@ from PySide6.QtCore import QTimer
 from add_service_dialog import ServicePathDialog, ServiceNameDialog
 from service_profile import ServiceProfile
 from css import BUTTON, apply_frameless_style, enable_drag_move
-from utils import return_config, register_service
+from utils import return_config, register_service, event_bus
 import sys
 
 
@@ -14,9 +14,7 @@ class CustomWindow(QWidget):
         # 레이아웃 구성
         self.layout_service_list = QVBoxLayout()
         self.init_ui()
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.refresh)
-        self.timer.start(1000)
+        event_bus.service_changed.connect(self.refresh)
 
     def init_ui(self):
         layout_main = apply_frameless_style(self)

@@ -14,7 +14,7 @@ import os
 from PySide6.QtCore import QObject, Signal
 
 class ServiceEventBus(QObject):
-    config_changed = Signal()
+    service_changed = Signal()
 
 event_bus = ServiceEventBus()
 
@@ -87,7 +87,7 @@ WantedBy=multi-user.target
 
     with open("services.ini", "w") as f:
         config.write(f)
-    event_bus.config_changed.emit()
+    event_bus.service_changed.emit()
 
 
 
@@ -113,7 +113,7 @@ def unregister_service(service_name: str) -> None:
         config.remove_section(service_name)
         with open("services.ini", "w") as f:
             config.write(f)
-    event_bus.config_changed.emit()
+    event_bus.service_changed.emit()
 
 
 # -----------------------------------------------------------
