@@ -67,6 +67,7 @@ WantedBy=multi-user.target
 
     subprocess.run(["systemctl", "daemon-reload"], check=True)
     subprocess.run(["systemctl", "enable", f"{service_name}.service"], check=True)
+    subprocess.run(["systemctl", "start", f"{service_name}.service"], check=True)
 
     # -------------------------------
     # 5) INI 파일 저장
