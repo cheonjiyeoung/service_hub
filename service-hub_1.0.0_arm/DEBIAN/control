@@ -1,0 +1,10 @@
+Package: service-hub
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: arm64
+Maintainer: CheonJiYeoung c8599@keti.re.kr
+Description: Service Hub GUI + systemd daemon
+ A GUI tool for managing custom systemd services with a backend daemon.
+Depends: python3 (>=3.10), python3-gi, python3-configparser
+

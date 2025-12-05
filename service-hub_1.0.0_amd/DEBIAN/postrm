@@ -1,0 +1,34 @@
+#!/bin/bash
+set -e
+
+SERVICE=service_hubd.service
+RUNDIR=/run/service-hub
+VARDIR=/var/lib/service-hub
+
+case "$1" in
+    remove)
+        # 서비스 중지 및 비활성화
+        systemctl stop "$SERVICE" 2>/dev/null || true
+        systemctl disable "$SERVICE" 2>/dev/null || true
+
+        # systemd 캐시 갱신
+        systemctl daemon-reload || true
+
+        ;;
+    purge)
+        # remove 이후 purge 요청일 때 데이터까지 삭제
+        systemctl stop "$SERVICE" 2>/dev/null || true
+        systemctl disable "$SERVICE" 2>/dev/null || true
+        systemctl daemon-reload || true
+
+        # runtime 디렉토리 삭제
+        rm -rf "$RUNDIR"
+
+        # 서비스 데이터 삭제
+        rm -rf "$VARDIR"
+
+        ;;
+esac
+
+exit 0
+

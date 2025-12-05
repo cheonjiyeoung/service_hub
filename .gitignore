@@ -4,3 +4,5 @@ venv/
 __pycache__/
 ./temp
 temp
+./service-hub_gui/build
+./service-hub_gui/dist
