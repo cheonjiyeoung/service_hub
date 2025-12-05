@@ -14,6 +14,7 @@ class CustomWindow(QWidget):
         # 레이아웃 구성
         self.layout_service_list = QVBoxLayout()
         self.init_ui()
+        self.refresh()
         event_bus.service_changed.connect(self.refresh)
 
     def init_ui(self):
