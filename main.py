@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QDialog, QApplication, QWidget, QPushButton, QHBoxLayout, QMessageBox, QVBoxLayout
-from PySide6.QtCore import Qt, QPoint
+from PySide6.QtCore import QTimer
 
 from add_service_dialog import ServicePathDialog, ServiceNameDialog
 from service_profile import ServiceProfile
@@ -14,7 +14,9 @@ class CustomWindow(QWidget):
         # 레이아웃 구성
         self.layout_service_list = QVBoxLayout()
         self.init_ui()
-        self.initialize()
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.refresh)
+        self.timer.start(1000)
 
     def init_ui(self):
         layout_main = apply_frameless_style(self)
@@ -31,7 +33,7 @@ class CustomWindow(QWidget):
         layout_main.addLayout(layout_btns)
         layout_main.addStretch(0)
 
-    def initialize(self):
+    def refresh(self):
         config = return_config()
         sections = config.sections()  # 서비스 이름 리스트
 

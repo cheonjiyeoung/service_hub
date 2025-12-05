@@ -189,3 +189,4 @@ def return_service_state(service_name):
 def modify_service_file(service_path, data):
     with open(service_path, "w") as f:
         f.write(data)
+    subprocess.run(["systemctl", "daemon-reload"], check=True)
