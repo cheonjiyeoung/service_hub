@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import (
     QDialog, QWidget, QVBoxLayout, QLabel, QPushButton,
-    QHBoxLayout, QTextBrowser, QApplication
+    QHBoxLayout, QTextBrowser, QApplication, QTextEdit
 )
 from PySide6.QtCore import Qt, QThread, Signal
 import subprocess
@@ -47,7 +47,7 @@ class FileViewerDialog(QDialog):
 
         layout = QVBoxLayout(self)
 
-        self.viewer = QTextBrowser()
+        self.viewer = QTextEdit()
         self.viewer.setStyleSheet("background-color: #1e1e1e; color: white; font-size: 13px;")
         self.viewer.setText(file_text)
 
