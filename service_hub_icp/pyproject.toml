@@ -1,13 +1,11 @@
 [project]
 name = "service_hub_icp"
 version = "1.0.0"
-description = "IPC client library for service-hub daemon"
-authors = [
-    { name = "CheonJiYeoung", email = "c8599@keti.re.kr" }
-]
 requires-python = ">=3.8"
-dependencies = []
 
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
