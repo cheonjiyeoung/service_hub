@@ -1,3 +1,4 @@
+**Read this in other languages: [한국어](README.ko.md)**
 # Service Hub
 
 A systemctl-based service auto-start manager with GUI interface for Linux systems.
