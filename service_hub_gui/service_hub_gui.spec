@@ -7,8 +7,8 @@ a = Analysis(
     pathex=['.'],
     binaries=[],
     datas=[
-        ('./assets/icon.png', 'assets'),
-        ('./assets/pyinstaller_icon.png', 'assets'),
+        ('./assets/tray_icon.png', 'assets'),
+        ('./assets/app_icon.png', 'assets'),
     ],
     hiddenimports=[
     'ui.dialogs.add_service_dialog',

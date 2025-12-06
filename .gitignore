@@ -4,7 +4,7 @@ venv/
 ./__pycache__/
 __pycache__/
 
-/build/
+/builder/
 
 /service-hub_gui/build/
 /service-hub_gui/dist/

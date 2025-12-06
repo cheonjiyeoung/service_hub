@@ -8,7 +8,7 @@ class SystemTray:
 
         # 트레이 아이콘 생성
         self.tray = QSystemTrayIcon()
-        self.tray.setIcon(QIcon("assets/icon.png"))
+        self.tray.setIcon(QIcon("/usr/share/service-hub/assets/icon.png"))
         self.tray.setVisible(True)
 
         # 메뉴 생성 (멤버 변수로 유지해야 GC 안 됨)
