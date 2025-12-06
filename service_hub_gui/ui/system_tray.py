@@ -6,12 +6,10 @@ class SystemTray:
         self.app = app
         self.window = window
 
-        # 트레이 아이콘 생성
         self.tray = QSystemTrayIcon()
         self.tray.setIcon(QIcon("/usr/share/service-hub/assets/icon.png"))
         self.tray.setVisible(True)
 
-        # 메뉴 생성 (멤버 변수로 유지해야 GC 안 됨)
         self.menu = QMenu()
 
         self.action_show = QAction("Open Service Hub")
@@ -28,10 +26,8 @@ class SystemTray:
         self.menu.addSeparator()
         self.menu.addAction(self.action_quit)
 
-        # 메뉴 설정
         self.tray.setContextMenu(self.menu)
 
-        # 클릭 이벤트도 연결할 수 있음
         self.tray.activated.connect(self.on_activated)
 
     def show_window(self):

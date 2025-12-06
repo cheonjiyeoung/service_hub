@@ -19,7 +19,7 @@ class ServiceProfile(QWidget):
         self.setStyleSheet("font-family: 'Inter'; font-size: 12px;")
 
         self.timer = QTimer(self)
-        self.timer.setInterval(1000)            # 1초 주기
+        self.timer.setInterval(1000)
         self.timer.timeout.connect(self._update_status)
 
     def _update_status(self):
@@ -41,16 +41,13 @@ class ServiceProfile(QWidget):
             self.label_status.setText(ERROR)
 
     def init_ui(self):
-        # 상태 인디케이터 (왼쪽)
         self.label_status = QLabel(self.status)
         self.label_status.setStyleSheet("font-size: 20px; padding: 0px; margin: 0px;")
 
-        # 서비스 이름 버튼 (왼쪽 정렬 유지)
         self.service_button = QPushButton(self.service_name)
         self.service_button.setStyleSheet(BUTTON)
         self.service_button.clicked.connect(self.on_click)
 
-        # 레이아웃 ← 인디케이터 → 버튼 순서
         self.layout_main.addWidget(self.label_status)
         self.layout_main.addWidget(self.service_button)
 
@@ -70,7 +67,6 @@ if __name__ == "__main__":
     test_window = QWidget()
     layout = QVBoxLayout(test_window)
 
-    # 테스트용 서비스 목록
     services = [
         "ssh",
         "cron",
@@ -82,7 +78,7 @@ if __name__ == "__main__":
         widget.init_ui()
         layout.addWidget(widget)
 
-    test_window.setStyleSheet("background-color: #3a3a3a;")  # 테스트용 배경색
+    test_window.setStyleSheet("background-color: #3a3a3a;")
     test_window.show()
 
     sys.exit(app.exec())

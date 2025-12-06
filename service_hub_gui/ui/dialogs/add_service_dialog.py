@@ -8,7 +8,6 @@ class ServiceNameDialog(QDialog):
     def __init__(self):
         super().__init__()
 
-        # layout = QVBoxLayout(self)
         layout = apply_frameless_style(self)
         enable_drag_move(self)
 
@@ -32,8 +31,6 @@ class ServicePathDialog(QDialog):
         self.service_name = service_name
         layout = apply_frameless_style(self)
         enable_drag_move(self)
-
-        # layout = QVBoxLayout(self)
 
         self.label = QLabel("Input target file(.sh):")
         layout.addWidget(self.label)

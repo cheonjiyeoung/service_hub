@@ -11,16 +11,9 @@ os.makedirs("/run/service-hub", exist_ok=True)
 SOCKET_PATH = "/run/service-hub/service_hubd.sock"
 INI_FILE = "/var/lib/service-hub/services.ini"
 
-# --------------------------------------
-# IPC Helper
-# --------------------------------------
 def send_json(conn, obj):
     data = json.dumps(obj).encode("utf-8") + b"\n"
     conn.sendall(data)
-
-# --------------------------------------
-# Config Helper
-# --------------------------------------
 def get_config():
     cfg = configparser.ConfigParser()
     if os.path.exists(INI_FILE):
@@ -32,18 +25,11 @@ def save_config(cfg):
     with open(INI_FILE, "w") as f:
         cfg.write(f)
 
-# --------------------------------------
-# systemctl helpers
-# --------------------------------------
 def svc_file(name):
     return f"/etc/systemd/system/{name}.service"
 
 def run(cmd, check=True):
     return subprocess.run(cmd, text=True, capture_output=True, check=check)
-
-# --------------------------------------
-# Commands
-# --------------------------------------
 def cmd_register(req):
     name = req["name"]
     path = req["path"]
@@ -52,7 +38,6 @@ def cmd_register(req):
     if name in cfg.sections():
         return {"error": "already_exists"}
 
-    # .service template
     content = f"""[Unit]
 Description={name}
 After=network.target
@@ -165,9 +150,6 @@ def cmd_list(req):
     return {"services": items}
 
 
-# --------------------------------------
-# journalctl streaming (separate thread)
-# --------------------------------------
 def cmd_stream_logs(req, conn):
     name = req["name"]
 
@@ -192,9 +174,6 @@ def cmd_stream_logs(req, conn):
     return {"result": "streaming"}
 
 
-# --------------------------------------
-# Command router
-# --------------------------------------
 COMMANDS = {
     "register": cmd_register,
     "unregister": cmd_unregister,
@@ -210,16 +189,13 @@ COMMANDS = {
 }
 
 
-# --------------------------------------
-# Server Main Loop
-# --------------------------------------
 def run_server():
     if os.path.exists(SOCKET_PATH):
         os.remove(SOCKET_PATH)
 
     server = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
     server.bind(SOCKET_PATH)
-    os.chmod(SOCKET_PATH, 0o666)   # 또는 root:servicehub 전용 권한
+    os.chmod(SOCKET_PATH, 0o666)
     server.listen(5)
 
     print("ServiceHub daemon running...")

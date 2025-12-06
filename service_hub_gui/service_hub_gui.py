@@ -3,7 +3,6 @@ from PySide6.QtWidgets import QDialog, QApplication, QWidget, QPushButton, QHBox
 from ui.dialogs.add_service_dialog import ServicePathDialog, ServiceNameDialog
 from ui.service_profile import ServiceProfile
 from css.css import BUTTON, apply_frameless_style, enable_drag_move
-# IPC 클라이언트 모듈
 from service_hub_ipc.utils import (
     list_services,
     register_service,
@@ -14,7 +13,6 @@ from core.event_bus import event_bus
 class CustomWindow(QWidget):
     def __init__(self):
         super().__init__()
-        # 레이아웃 구성
         self.layout_service_list = QVBoxLayout()
         self.init_ui()
         self.refresh()
@@ -30,20 +28,17 @@ class CustomWindow(QWidget):
         btn_add_service.clicked.connect(self.on_add_service)
         layout_btns.addWidget(btn_add_service)
 
-        # 전체 레이아웃
         layout_main.addLayout(self.layout_service_list)
         layout_main.addLayout(layout_btns)
         layout_main.addStretch(0)
 
     def refresh(self):
-        # 기존 UI 제거
         while self.layout_service_list.count():
             item = self.layout_service_list.takeAt(0)
             widget = item.widget()
             if widget:
                 widget.deleteLater()
 
-        # 데몬에서 목록 받아오기
         resp = list_services()
         services = resp.get("services", [])
 
@@ -54,7 +49,6 @@ class CustomWindow(QWidget):
             self.layout_service_list.addWidget(profile)
 
     def on_add_service(self):
-        # Step 1: 서비스 이름
         name_dialog = ServiceNameDialog()
         if name_dialog.exec() != QDialog.Accepted:
             return
@@ -63,7 +57,6 @@ class CustomWindow(QWidget):
         if not service_name:
             return
 
-        # Step 2: 파일 경로
         path_dialog = ServicePathDialog(service_name)
         if path_dialog.exec() != QDialog.Accepted:
             return
@@ -72,7 +65,6 @@ class CustomWindow(QWidget):
         if not (service_path and service_path.endswith(".sh")):
             return
 
-        # IPC로 데몬에 등록 요청
         resp = register_service(service_name, service_path)
 
         if resp.get("error"):
@@ -81,7 +73,6 @@ class CustomWindow(QWidget):
 
         print(f"[IPC] Registered: {service_name} -> {service_path}")
 
-        # UI 갱신
         self.refresh()
 
     def closeEvent(self, event):

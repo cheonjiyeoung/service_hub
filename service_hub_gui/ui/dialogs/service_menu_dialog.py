@@ -37,9 +37,6 @@ class FileViewerDialog(QDialog):
         modify_service_file(self.path, content)
         self.accept()
 
-# -------------------------
-# Log Streaming Thread
-# -------------------------
 class LogStreamThread(QThread):
     log_received = Signal(str)
 
@@ -61,9 +58,6 @@ class LogStreamThread(QThread):
     def stop(self):
         self.running = False
 
-# -------------------------
-# ServiceMenuDialog with Resize + Move
-# -------------------------
 class ServiceMenuDialog(QDialog):
     def __init__(self, service_name: str):
         super().__init__()
@@ -88,9 +82,6 @@ class ServiceMenuDialog(QDialog):
         self.layout.setContentsMargins(6, 6, 6, 6)
         self.layout.setSpacing(8)
 
-        # -------------------------
-        # Title Bar
-        # -------------------------
         title_bar = QWidget()
         title_bar.setFixedHeight(38)
         title_bar.setStyleSheet("background-color: #353535; border-radius: 4px;")
@@ -110,9 +101,6 @@ class ServiceMenuDialog(QDialog):
         title_layout.addWidget(close_btn)
         self.layout.addWidget(title_bar)
 
-        # -------------------------
-        # Service Controls
-        # -------------------------
         control_layout = QHBoxLayout()
         control_layout.setSpacing(10)
 
@@ -155,11 +143,7 @@ class ServiceMenuDialog(QDialog):
         control_layout.addWidget(logs_button)
 
         self.layout.addLayout(control_layout)
-        # self.layout.addStretch(0)
 
-    # -------------------------
-    # Log Stream UI
-    # -------------------------
     def open_log_stream(self):
         if self.logs_shown:
             return
