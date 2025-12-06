@@ -3,8 +3,8 @@
   <img width="256" height="256" alt="Service Hub Icon" src="https://github.com/user-attachments/assets/c5190f09-629c-4359-9a15-3014adc924be" />
   <br><br>
   
-  [![AMD64](https://img.shields.io/badge/Download-AMD64-blue?style=for-the-badge)](https://github.com/cheonjiyeoung/service_hub/raw/release/service-hub_1.0.0_amd64.deb)
-  [![ARM64](https://img.shields.io/badge/Download-ARM64-green?style=for-the-badge)](https://github.com/cheonjiyeoung/service_hub/raw/release/service-hub_1.0.0_arm64.deb)
+  [![AMD64](https://img.shields.io/badge/Download-AMD64-blue?style=for-the-badge)](https://github.com/cheonjiyeoung/service_hub/release/service-hub_1.0.0_amd64.deb)
+  [![ARM64](https://img.shields.io/badge/Download-ARM64-green?style=for-the-badge)](https://github.com/cheonjiyeoung/service_hub/release/service-hub_1.0.0_arm64.deb)
 
   **Read this in other languages: [한국어](README.ko.md)**
 </div>
