@@ -61,6 +61,12 @@ ex)
 3. View Logs button clicked
 <img width="618" height="350" alt="logs" src="https://github.com/user-attachments/assets/17e6ea4c-c7cf-4068-97c3-7f209d4199fe" />
 
+### System Tray Icon Issue
+I cannot fix the icon disappearance bug... The "..." icon is the correct one.
+
+<img width="362" height="27" alt="스크린샷, 2025-12-06 21-00-38" src="https://github.com/user-attachments/assets/ea9f05ea-7457-44ae-9dc2-fa18f308cebc" />
+
+
 ## Installation
 
 ### Download
