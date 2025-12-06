@@ -3,12 +3,12 @@
 block_cipher = None
 
 a = Analysis(
-    ['main.py'],
+    ['service_hub_gui.py'],
     pathex=['.'],
     binaries=[],
     datas=[
         ('./assets/icon.png', 'assets'),
-        ('./assets/icon_pyinstaller.png', 'assets'),
+        ('./assets/pyinstaller_icon.png', 'assets'),
     ],
     hiddenimports=[
     'ui.dialogs.add_service_dialog',
@@ -33,7 +33,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='main',
+    name='service_hub_gui',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -41,5 +41,6 @@ exe = EXE(
     upx_exclude=[],
     runtime_tmpdir=None,
     console=False,
+    icon="./assets/pyinstaller_icon.png",
 )
 
