@@ -46,12 +46,12 @@ sudo apt-get install -f
 
 The daemon starts automatically after installation. Launch the GUI:
 ```bash
-service_hub_gui
+service_hub
 ```
 
 Or run in daemon mode:
 ```bash
-nohup service_hub_gui &
+nohup service_hub &
 ```
 
 ### Managing Services
