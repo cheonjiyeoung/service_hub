@@ -3,7 +3,7 @@
   <img width="256" height="256" alt="Service Hub Icon" src="https://github.com/user-attachments/assets/c5190f09-629c-4359-9a15-3014adc924be" />
   <br><br>
   
-  - **Download**: [release](https://github.com/cheonjiyeoung/service_hub/tree/release)
+  **Download**: [release](https://github.com/cheonjiyeoung/service_hub/tree/release)
 
   **Read this in other languages: [한국어](README.ko.md)**
 </div>
