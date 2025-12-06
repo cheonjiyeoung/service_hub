@@ -1,6 +1,7 @@
 
 <img width="256" height="256" alt="pyinstaller_icon" src="https://github.com/user-attachments/assets/c5190f09-629c-4359-9a15-3014adc924be" />
-
+- **AMD64**: [service-hub_1.0.0_amd64.deb](https://github.com/cheonjiyeoung/service_hub/blob/release/service-hub_1.0.0_amd64.deb)
+- **ARM64**: [service-hub_1.0.0_arm64.deb](https://github.com/cheonjiyeoung/service_hub/blob/release/service-hub_1.0.0_arm64.deb)
 # Service Hub
 ## Overview
 
@@ -30,9 +31,6 @@ Service Hub provides a user-friendly interface to manage systemd services with a
 ### Download
 
 Download the latest `.deb` package for your architecture:
-
-- **AMD64**: [service-hub_1.0.0_amd64.deb](https://github.com/cheonjiyeoung/service_hub/blob/release/service-hub_1.0.0_amd64.deb)
-- **ARM64**: [service-hub_1.0.0_arm64.deb](https://github.com/cheonjiyeoung/service_hub/blob/release/service-hub_1.0.0_arm64.deb)
 
 ### Install
 ```bash
