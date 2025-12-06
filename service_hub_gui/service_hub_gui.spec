@@ -17,6 +17,7 @@ a = Analysis(
     'ui.service_profile',
     'core.event_bus',
     'css.css',
+    'service_hub_ipc.utils'
     ],
     hookspath=[],
     hooksconfig={},
