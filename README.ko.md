@@ -1,3 +1,4 @@
+**Read this in other languages: [English](README.md)**
 # Service Hub
 Linux 시스템을 위한 systemctl 기반 서비스 자동 시작 관리자 (GUI 포함)
 
