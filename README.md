@@ -112,7 +112,6 @@ nohup service_hub &
 
 - Linux with systemd
 - Python 3.8 or higher
-- PySide6
 
 ## Architecture
 ```
