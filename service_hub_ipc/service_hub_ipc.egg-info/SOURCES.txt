@@ -1,7 +1,0 @@
-pyproject.toml
-service_hub_ipc/__init__.py
-service_hub_ipc/utils.py
-service_hub_ipc.egg-info/PKG-INFO
-service_hub_ipc.egg-info/SOURCES.txt
-service_hub_ipc.egg-info/dependency_links.txt
-service_hub_ipc.egg-info/top_level.txt
