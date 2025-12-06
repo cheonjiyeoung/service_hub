@@ -93,12 +93,12 @@ sudo apt purge service-hub
 
 The daemon starts automatically after installation. Launch the GUI:
 ```bash
-service_hub
+service_hub_gui
 ```
 
 Or run in daemon mode:
 ```bash
-nohup service_hub &
+nohup service_hub_gui &
 ```
 
 ### Managing Services
