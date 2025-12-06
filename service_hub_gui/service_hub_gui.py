@@ -4,7 +4,7 @@ from ui.dialogs.add_service_dialog import ServicePathDialog, ServiceNameDialog
 from ui.service_profile import ServiceProfile
 from css.css import BUTTON, apply_frameless_style, enable_drag_move
 # IPC 클라이언트 모듈
-from service_hub_icp.utils import (
+from service_hub_ipc.utils import (
     list_services,
     register_service,
 )

@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QWidget, QPushButton, QHBoxLayout, QLabel
 from PySide6.QtCore import QTimer
 from ui.dialogs.service_menu_dialog import ServiceMenuDialog
-from service_hub_icp.utils import return_service_state
+from service_hub_ipc.utils import return_service_state
 from css.css import BUTTON
 
 ACTIVE = "🟢"

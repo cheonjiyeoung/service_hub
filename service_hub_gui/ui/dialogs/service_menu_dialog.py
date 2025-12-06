@@ -5,7 +5,7 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt, QThread, Signal
 import sys
 
-from service_hub_icp.utils import (disable_service, restart_service, start_service,
+from service_hub_ipc.utils import (disable_service, restart_service, start_service,
                    stop_service, stream_logs, unregister_service,
                    enable_service, modify_service_file)
 
