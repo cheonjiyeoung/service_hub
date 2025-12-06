@@ -1,10 +1,24 @@
-
+![systemctl_manager_ico](https://github.com/user-attachments/assets/c037ed91-300f-48aa-a37c-35c1233e9239)
 
 # Service Hub
 
 A systemctl-based service auto-start manager with GUI interface for Linux systems.
+![Uplo<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect x="12" y="12" width="40" height="40" rx="8" fill="#5C6BC0"/>
+  <g transform="translate(32, 28)">
+    <circle cx="0" cy="-10" r="2" fill="white"/>
+    <circle cx="8.66" cy="-5" r="2" fill="white"/>
+    <circle cx="8.66" cy="5" r="2" fill="white"/>
+    <circle cx="0" cy="10" r="2" fill="white"/>
+    <circle cx="-8.66" cy="5" r="2" fill="white"/>
+    <circle cx="-8.66" cy="-5" r="2" fill="white"/>
+  </g>
+  
+  <text x="32" y="45" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="white" text-anchor="middle">SERVICE</text>
+  <text x="32" y="51" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="white" text-anchor="middle">HUB</text>
+</svg>ading systemctl_manager_ico.svg…]()
 
-![Service Hub Icon](https://via.placeholder.com/64x64.png?text=Icon)
+
 
 ## Overview
 
