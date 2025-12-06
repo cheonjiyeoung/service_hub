@@ -102,7 +102,7 @@ service_hub_gui
 
 Or run in daemon mode:
 ```bash
-nohup service_hub_gui &
+nohup service_hub_gui >/dev/null 2>&1 &
 ```
 
 ### Managing Services
