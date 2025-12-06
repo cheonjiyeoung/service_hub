@@ -63,10 +63,8 @@ Service Hub는 systemd 서비스를 자동 시작 기능과 함께 관리할 수
 3. View Logs 버튼 클릭
 <img width="618" height="350" alt="logs" src="https://github.com/user-attachments/assets/17e6ea4c-c7cf-4068-97c3-7f209d4199fe" />
 
-### 시스템 트레이 아이콘 문제
-아이콘 표시 버그를 해결하지 못했습니다... "..." 아이콘이 정상적인 아이콘입니다.
-
-<img width="362" height="27" alt="스크린샷, 2025-12-06 21-00-38" src="https://github.com/user-attachments/assets/ea9f05ea-7457-44ae-9dc2-fa18f308cebc" />
+4. 시스템 트레이 아이콘
+<img width="449" height="185" alt="스크린샷 2025-12-07 02-55-29" src="https://github.com/user-attachments/assets/9905fee8-057b-495f-97e4-a24aed031232" />
 
 
 ## 설치
