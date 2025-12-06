@@ -2,7 +2,7 @@
   <img width="256" height="256" alt="Service Hub Icon" src="https://github.com/user-attachments/assets/c5190f09-629c-4359-9a15-3014adc924be" />
   <br><br>
   
-  **Download**: [release](https://github.com/cheonjiyeoung/service_hub/tree/release)
+  **Download**: [다운로드](https://github.com/cheonjiyeoung/service_hub/tree/release)
   
   <br>
   
@@ -136,7 +136,6 @@ MIT 라이선스 - 누구나 제한 없이 자유롭게 사용할 수 있습니�
 ## 링크
 
 - **소스 코드**: [소스 보기](https://github.com/cheonjiyeoung/service_hub/tree/source)
-- **릴리즈**: [릴리즈](https://github.com/cheonjiyeoung/service_hub/tree/release)
 - **이슈**: [버그 리포트](https://github.com/cheonjiyeoung/service_hub/issues)
 
 ---
