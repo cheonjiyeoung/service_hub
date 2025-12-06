@@ -1,6 +1,0 @@
-/usr/bin/service-hub-gui                ← PyInstaller 결과
-/usr/lib/service-hub/service_hubd.py          ← root 백엔드 데몬
-/run/service-hub/ icp소켓디렉토리
-service_hub_icp/ipc_utils.py       ← site-package PyInstaller빌드시 포함
-/etc/systemd/system/service_hubd.service ← setup시 생성
-/var/lib/service-hub/services.ini       ← 동적 설정

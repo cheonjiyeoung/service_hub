@@ -1,9 +1,0 @@
-#!/bin/bash
-set -e
-
-systemctl daemon-reload
-systemctl enable service_hubd.service
-systemctl restart service_hubd.service
-
-exit 0
-
