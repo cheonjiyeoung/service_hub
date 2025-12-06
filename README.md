@@ -14,14 +14,48 @@ Service Hub provides a user-friendly interface to manage systemd services with a
 
 ## How to use
 
-### Main Interface
-![Main Interface](screenshot_main.png)
+### Register service
+1. Click "Add" button
+   <img width="374" height="292" alt="how_to_register_1" src="https://github.com/user-attachments/assets/adde90ae-0c1a-45c5-a857-080baeba20e3" />
+
+2. Input service name (systemctl service file name)
+  <img width="216" height="183" alt="how_to_register_2" src="https://github.com/user-attachments/assets/bda1271b-3fca-4175-b858-d9decd23b48b" />
+
+3. Input target launch file path via text input or "Browse" button (Currently only supports .sh file format)
+  <img width="219" height="187" alt="how_to_register_3" src="https://github.com/user-attachments/assets/23d93850-a0a0-45db-a13a-12b975bbf1f3" />
+
+4. Check registered service (Initially in stopped state, auto launch enabled)
+  <img width="211" height="143" alt="how_to_register_4" src="https://github.com/user-attachments/assets/e1e86873-c413-47df-91c1-3058e12f9b67" />
+  
+  ## Service Status Indicators
+  - 🔴: Service not running
+  - 🟢: Service is running
+  - ⚠️: Error
 
 ### Service Configuration
-![Service Configuration](screenshot_config.png)
+When click service name, service manager menu appear
+<img width="611" height="144" alt="setting" src="https://github.com/user-attachments/assets/8b3d91a3-3516-4866-9929-40c2364b1537" />
 
-### System Tray
-![System Tray](screenshot_tray.png)
+| Button | Description |
+|--------|-------------|
+| **Start** | Start service |
+| **Stop** | Stop service |
+| **Restart** | Restart service |
+| **Enable** | Enable auto launch |
+| **Disable** | Disable auto launch |
+| **Remove** | Remove service file and disable auto launch |
+| **Modify** | Modify the service file |
+| **View Logs** | View service output |
+
+ex)
+1. Start button clicked
+<img width="624" height="148" alt="start" src="https://github.com/user-attachments/assets/9e61b6da-654f-40bd-b79c-c599ec2ea1fa" />
+
+2. Modify button clicked
+<img width="832" height="640" alt="configulation" src="https://github.com/user-attachments/assets/8e761411-eb7b-4846-9019-4c800ffd9545" />
+
+3. View Logs button clicked
+<img width="618" height="350" alt="logs" src="https://github.com/user-attachments/assets/17e6ea4c-c7cf-4068-97c3-7f209d4199fe" />
 
 ## Installation
 
@@ -38,6 +72,15 @@ sudo apt-get install -f  # Install dependencies if needed
 # ARM64
 sudo dpkg -i service-hub_1.0.0_arm64.deb
 sudo apt-get install -f
+```
+
+## Uninstallation
+```bash
+# Remove package
+sudo apt remove service-hub
+
+# Remove package and configuration files
+sudo apt purge service-hub
 ```
 
 ## Usage
