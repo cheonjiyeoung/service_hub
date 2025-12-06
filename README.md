@@ -9,15 +9,7 @@
 
 Service Hub provides a user-friendly interface to manage systemd services with automatic startup capabilities. The application features a clean GUI with system tray integration, allowing you to easily monitor and control your system services.
 
-### Key Features
-
-- Systemctl-based service management
-- Automatic service startup configuration
-- System tray integration
-- Daemon mode support
-- Support for AMD64 and ARM64 architectures
-
-## Screenshots
+## How to use
 
 ### Main Interface
 ![Main Interface](screenshot_main.png)
@@ -72,12 +64,6 @@ nohup service_hub_gui &
 - Python 3.8 or higher
 - PySide6
 
-## Development
-
-Want to contribute or build from source? Check out the source code:
-
-**[View Source Code](https://github.com/cheonjiyeoung/service_hub/tree/source)**
-
 ## Architecture
 ```
 Service Hub
@@ -92,8 +78,8 @@ MIT License - Free to use for anyone without restrictions.
 
 ## Links
 
-- **Source Code**: [source branch](https://github.com/cheonjiyeoung/service_hub/tree/source)
-- **Releases**: [release branch](https://github.com/cheonjiyeoung/service_hub/tree/release)
+- **Source Code**: [view source](https://github.com/cheonjiyeoung/service_hub/tree/source)
+- **Releases**: [release](https://github.com/cheonjiyeoung/service_hub/tree/release)
 - **Issues**: [Report a bug](https://github.com/cheonjiyeoung/service_hub/issues)
 
 ---
