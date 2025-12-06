@@ -6,6 +6,8 @@ import subprocess
 import configparser
 import threading
 
+os.makedirs(os.path.dirname("/run/service-hub"), exist_ok=True)
+
 SOCKET_PATH = "/run/service-hub/service_hubd.sock"
 INI_FILE = "/var/lib/service-hub/services.ini"
 
