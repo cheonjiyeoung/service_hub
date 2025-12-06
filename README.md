@@ -2,25 +2,6 @@
 <img width="256" height="256" alt="pyinstaller_icon" src="https://github.com/user-attachments/assets/c5190f09-629c-4359-9a15-3014adc924be" />
 
 # Service Hub
-
-A systemctl-based service auto-start manager with GUI interface for Linux systems.
-![Uplo<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect x="12" y="12" width="40" height="40" rx="8" fill="#5C6BC0"/>
-  <g transform="translate(32, 28)">
-    <circle cx="0" cy="-10" r="2" fill="white"/>
-    <circle cx="8.66" cy="-5" r="2" fill="white"/>
-    <circle cx="8.66" cy="5" r="2" fill="white"/>
-    <circle cx="0" cy="10" r="2" fill="white"/>
-    <circle cx="-8.66" cy="5" r="2" fill="white"/>
-    <circle cx="-8.66" cy="-5" r="2" fill="white"/>
-  </g>
-  
-  <text x="32" y="45" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="white" text-anchor="middle">SERVICE</text>
-  <text x="32" y="51" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="white" text-anchor="middle">HUB</text>
-</svg>ading systemctl_manager_ico.svg…]()
-
-
-
 ## Overview
 
 Service Hub provides a user-friendly interface to manage systemd services with automatic startup capabilities. The application features a clean GUI with system tray integration, allowing you to easily monitor and control your system services.
