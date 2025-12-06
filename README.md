@@ -1,4 +1,5 @@
-![systemctl_manager_ico](https://github.com/user-attachments/assets/c037ed91-300f-48aa-a37c-35c1233e9239)
+
+<img width="256" height="256" alt="pyinstaller_icon" src="https://github.com/user-attachments/assets/c5190f09-629c-4359-9a15-3014adc924be" />
 
 # Service Hub
 
