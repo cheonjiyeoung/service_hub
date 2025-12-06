@@ -16,15 +16,19 @@ Service Hub provides a user-friendly interface to manage systemd services with a
 
 ### Register service
 1. Click "Add" button
+   
    <img width="374" height="292" alt="how_to_register_1" src="https://github.com/user-attachments/assets/adde90ae-0c1a-45c5-a857-080baeba20e3" />
 
 2. Input service name (systemctl service file name)
+   
   <img width="216" height="183" alt="how_to_register_2" src="https://github.com/user-attachments/assets/bda1271b-3fca-4175-b858-d9decd23b48b" />
 
 3. Input target launch file path via text input or "Browse" button (Currently only supports .sh file format)
+   
   <img width="219" height="187" alt="how_to_register_3" src="https://github.com/user-attachments/assets/23d93850-a0a0-45db-a13a-12b975bbf1f3" />
 
 4. Check registered service (Initially in stopped state, auto launch enabled)
+   
   <img width="211" height="143" alt="how_to_register_4" src="https://github.com/user-attachments/assets/e1e86873-c413-47df-91c1-3058e12f9b67" />
   
   ## Service Status Indicators
