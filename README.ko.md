@@ -104,7 +104,7 @@ service_hub_gui
 
 데몬 모드로 실행:
 ```bash
-nohup service_hub_gui &
+nohup service_hub_gui >/dev/null 2>&1 &
 ```
 
 ### 서비스 관리
