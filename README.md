@@ -1,9 +1,12 @@
 
-<img width="256" height="256" alt="pyinstaller_icon" src="https://github.com/user-attachments/assets/c5190f09-629c-4359-9a15-3014adc924be" />
-
-**AMD64**: [service-hub_1.0.0_amd64.deb](https://github.com/cheonjiyeoung/service_hub/blob/release/service-hub_1.0.0_amd64.deb)
-
-**ARM64**: [service-hub_1.0.0_arm64.deb](https://github.com/cheonjiyeoung/service_hub/blob/release/service-hub_1.0.0_arm64.deb)
+<div align="center">
+  <img width="256" height="256" alt="Service Hub Icon" src="https://github.com/user-attachments/assets/c5190f09-629c-4359-9a15-3014adc924be" />
+  
+  ### Download Latest Release
+  
+  [![AMD64](https://img.shields.io/badge/Download-AMD64-blue?style=for-the-badge)](https://github.com/cheonjiyeoung/service_hub/raw/release/service-hub_1.0.0_amd64.deb)
+  [![ARM64](https://img.shields.io/badge/Download-ARM64-green?style=for-the-badge)](https://github.com/cheonjiyeoung/service_hub/raw/release/service-hub_1.0.0_arm64.deb)
+</div>
 # Service Hub
 ## Overview
 
